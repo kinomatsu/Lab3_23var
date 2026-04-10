@@ -1,4 +1,5 @@
-﻿using System;
+﻿using lab3_23var;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
@@ -11,78 +12,6 @@ namespace lab3_23var
         public Form1()
         {
             InitializeComponent();
-        }
-
-        // Проверка с использованием стека
-        /// <summary>
-        /// Проверяет правильность скобочной последовательности с помощью стека.
-        /// Возвращает true, если последовательность корректна.
-        /// Параметр ops — счётчик элементарных операций.
-        /// </summary>
-        public static bool CheckWithStack(string input, out long ops)
-        {
-            ops = 0;
-            var stack = new Stack<char>();
-
-            foreach (char c in input)
-            {
-                ops++; // операция чтения символа
-
-                if (c == '(' || c == '[' || c == '{')
-                {
-                    stack.Push(c);
-                    ops++; // push
-                }
-                else if (c == ')' || c == ']' || c == '}')
-                {
-                    ops++; // проверка стека
-                    if (stack.Count == 0) return false;
-
-                    char top = stack.Pop();
-                    ops++; // pop + сравнение
-
-                    if ((c == ')' && top != '(') ||
-                        (c == ']' && top != '[') ||
-                        (c == '}' && top != '{'))
-                        return false;
-                }
-            }
-
-            ops++; // финальная проверка
-            return stack.Count == 0;
-        }
-
-        //  Проверка с использованием счётчика
-        //  (работает только для одного вида скобок — '()')
-        /// <summary>
-        /// Проверяет правильность скобочной последовательности с помощью счётчика.
-        /// Поддерживает только круглые скобки.
-        /// Параметр ops — счётчик элементарных операций.
-        /// </summary>
-        public static bool CheckWithCounter(string input, out long ops)
-        {
-            ops = 0;
-            int counter = 0;
-
-            foreach (char c in input)
-            {
-                ops++; // операция чтения символа
-
-                if (c == '(')
-                {
-                    counter++;
-                    ops++;
-                }
-                else if (c == ')')
-                {
-                    counter--;
-                    ops++;
-                    if (counter < 0) return false; // несбалансировано
-                }
-            }
-
-            ops++; // финальная проверка
-            return counter == 0;
         }
 
         //  Обработчик кнопки «Проверить»
@@ -99,12 +28,12 @@ namespace lab3_23var
 
             // Алгоритм стека
             var sw1 = Stopwatch.StartNew();
-            bool stackResult = CheckWithStack(input, out long stackOps);
+            bool stackResult = BracketChecker.CheckWithStack(input, out long stackOps);
             sw1.Stop();
 
-            // Алгоритм счётчика
+            // Алгоритм счётчика 
             var sw2 = Stopwatch.StartNew();
-            bool counterResult = CheckWithCounter(input, out long counterOps);
+            bool counterResult = BracketChecker.CheckWithCounter(input, out long counterOps);
             sw2.Stop();
 
             // Вывод результатов
@@ -134,11 +63,11 @@ namespace lab3_23var
                 string testStr = GenerateBalanced(n);
 
                 var sw1 = Stopwatch.StartNew();
-                CheckWithStack(testStr, out long sOps);
+                BracketChecker.CheckWithStack(testStr, out long sOps);
                 sw1.Stop();
 
                 var sw2 = Stopwatch.StartNew();
-                CheckWithCounter(testStr, out long cOps);
+                BracketChecker.CheckWithCounter(testStr, out long cOps);
                 sw2.Stop();
 
                 dgvResults.Rows.Add(

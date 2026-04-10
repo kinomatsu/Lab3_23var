@@ -1,4 +1,4 @@
-﻿using lab3_23var;
+﻿using Lab3_23var;
 using System;
 using System.Collections.Generic;
 using System.Linq;

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace lab3_23var
+namespace Lab3_23var
 {
     /// <summary>
     /// Содержит два алгоритма проверки правильности скобочной последовательности.

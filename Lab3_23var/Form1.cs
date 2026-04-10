@@ -1,11 +1,11 @@
-﻿using lab3_23var;
+﻿using Lab3_23var;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace lab3_23var
+namespace Lab3_23var
 {
     public partial class Form1 : Form
     {

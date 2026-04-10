@@ -1,4 +1,4 @@
-﻿namespace lab3_23var
+﻿namespace Lab3_23var
 {
     partial class Form1
     {

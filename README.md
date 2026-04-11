@@ -51,30 +51,32 @@
 
 # Структура репозитория
 
-```text
-Lab3_23var/
-├── Lab3_23var/                      # основной проект WinForms
-│   ├── Properties/             # настройки проекта
-│   ├── App.config              # конфигурация приложения
-│   ├── BracketChecker.cs       # класс с алгоритмами
-│   ├── Form1.cs                # логика интерфейса
-│   ├── Form1.Designer.cs       # код интерфейса (дизайнер)
-│   ├── Program.cs              # точка входа
-│   └── Lab3_23var.csproj            # файл проекта
-│
-├── Lab3_23var.Tests/                # проект модульных тестов
-│   ├── BracketCheckerTests.cs  # тесты (20 штук, MSTest)
-│   └── Laba3.Tests.csproj      # файл проекта тестов
-│
-├── .gitignore
-└── Lab3_23var.sln                   # файл решения Visual Studio
+```mermaid
+flowchart TD
+    ROOT["📁 Lab3_23var (репозиторий)"]
+
+    ROOT --> SLN["📄 Lab3_23var.sln\nфайл решения Visual Studio"]
+    ROOT --> GITIGNORE["📄 .gitignore"]
+
+    ROOT --> MAIN["📁 Lab3_23var\nосновной проект WinForms"]
+    MAIN --> PROPS["📁 Properties\nнастройки проекта"]
+    MAIN --> APPCONFIG["📄 App.config\nконфигурация приложения"]
+    MAIN --> CHECKER["📄 BracketChecker.cs\nкласс с алгоритмами"]
+    MAIN --> FORM1["📄 Form1.cs\nлогика интерфейса"]
+    MAIN --> FORM1D["📄 Form1.Designer.cs\nкод интерфейса (дизайнер)"]
+    MAIN --> PROGRAM["📄 Program.cs\nточка входа"]
+    MAIN --> CSPROJ["📄 Lab3_23var.csproj\nфайл проекта"]
+
+    ROOT --> TESTS["📁 Lab3_23var.Tests\nпроект модульных тестов"]
+    TESTS --> TESTFILE["📄 BracketCheckerTests.cs\n20 тестов MSTest"]
+    TESTS --> TESTCSPROJ["📄 Lab3_23var.Tests.csproj\nфайл проекта тестов"]
 ```
 
 ---
 
 # Технологический стек
 
-- **Язык программирования:** C#
+- **Язык программирования:** C# 7.3
 - **Платформа:** .NET Framework 4.7.2
 - **Тип приложения:** Windows Forms (WinForms)
 - **Тестирование:** MSTest (Unit Test Project)
